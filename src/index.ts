@@ -2,9 +2,12 @@ import express, { Express, Request, Response } from "express";
 import { whitelistAddresses } from "./whitelistAddresses";
 import MerkleTree from 'merkletreejs'
 import { keccak256 } from 'web3-utils'
+import cors from "cors";
 
 const app: Express = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
+
+app.use(cors())
 
 const buf2hex = (x: Buffer) => {
     return '0x' + x.toString('hex')
