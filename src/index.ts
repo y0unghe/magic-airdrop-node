@@ -43,8 +43,8 @@ app.get('/b2/proof', (req: Request, res: Response) => {
     if (address && typeof address === 'string') {
         const tree = StandardMerkleTree.load(JSON.parse(readFileSync("tree.json", "utf8")));
         for (const [i, v] of tree.entries()) {
-            const address: string = v[0]
-            if (address.toLowerCase() === address.toLowerCase()) {
+            const treeAddress: string = v[0]
+            if (treeAddress.toLowerCase() === address.toLowerCase()) {
                 proof = tree.getProof(i);
                 break
             }
